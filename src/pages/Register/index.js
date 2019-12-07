@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 
 import { Container, Form, SubmitButton, ButtonLink } from "./styles";
 import { Link, Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import api from "../../services/api";
 
 class Register extends Component {
@@ -27,10 +31,12 @@ class Register extends Component {
     try {
       await api.post("/user", register);
     } catch (error) {
+      toast.error("O cadastro falhou");
     } finally {
       this.setState({ name: "" });
       this.setState({ email: "" });
       this.setState({ password: "" });
+      toast.success("Cadastro ralizado com sucesso !!");
     }
     this.setState({ loading: false });
     this.props.history.push("/");
@@ -65,7 +71,7 @@ class Register extends Component {
             required
           />
           <input
-            type="text"
+            type="email"
             onChange={this.handleEmailChange}
             placeholder="E-mail"
             value={email}

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ContainerApp } from "../../components/Container/index";
 import { ButtonLink } from "./styles";
+
+import Navbar from "../../components/Navbar/index";
+
 import api from "../../services/api";
 import auth from "../../services/auth";
 
@@ -11,7 +13,7 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    this.handleLogout();
+    // this.handleLogout();
   }
 
   handleLogout = () => {
@@ -21,11 +23,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <ContainerApp>
-        <ButtonLink>
-          <Link to="/app">MovieCatalog</Link>
-        </ButtonLink>
-      </ContainerApp>
+      <div>
+        <Navbar />
+        <h1>App</h1>
+      </div>
     );
   }
 }

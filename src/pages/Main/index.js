@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 
 import api from "../../services/api";
+import auth from "../../services/auth";
 
 import { Container, Form, SubmitButton, ButtonLink } from "./styles";
 
@@ -33,7 +34,7 @@ class Main extends Component {
     const user = response.data.user;
     const token = response.data.token;
 
-    localStorage.setItem("token", token);
+    auth.login(token);
     localStorage.setItem("user", user);
 
     this.props.history.push("/app");

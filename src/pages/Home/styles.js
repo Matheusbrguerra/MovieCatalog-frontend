@@ -31,21 +31,3 @@ export const Container = styled.div`
     margin-right: 10px;
   }
 `;
-
-export const ButtonLink = styled.div`
-  flex-direction: row;
-
-  a {
-    font-family: billabong, "billabongregular";
-    padding-left: 10px;
-    font-size: 50px;
-    background-color: #b721ff;
-    background-image: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    &:hover {
-      background-color: #ffe53b;
-      background-image: linear-gradient(147deg, #ffe53b 9%, #ff2525 99%);
-    }
-  }
-`;
