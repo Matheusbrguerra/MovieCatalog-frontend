@@ -34,3 +34,5 @@ export const ContainerApp = styled.div`
     }
   }
 `;
+
+export const SubmitButton = styled.button``;

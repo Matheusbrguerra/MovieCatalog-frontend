@@ -5,6 +5,7 @@ import { isAuthenticated } from "./services/auth";
 import Main from "../src/pages/Main/index";
 import Register from "../src/pages/Register/index";
 import Home from "./pages/Home/index";
+import Actors from "./pages/Actors/index";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -26,7 +27,7 @@ export default function Routes() {
         <Route path="/" exact component={Main} />
         <Route path="/register" component={Register} />
         <PrivateRoute path="/app" component={Home} />
-        <PrivateRoute path="/actors" component={Home} />
+        <PrivateRoute path="/actors" component={Actors} />
         <PrivateRoute path="/directors" component={Home} />
         <PrivateRoute path="/movies" component={Home} />
         <Route path="*" component={() => <h1>Page Not found</h1>} />

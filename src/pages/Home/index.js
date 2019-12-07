@@ -13,18 +13,12 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.loadMovies();
-    this.loadUser();
     // this.handleLogout();
   }
 
   loadMovies = async page => {
     const response = await api.get(`/movies/?page=${this.state.page}`);
     this.setState({ movies: response.data });
-  };
-
-  loadUser = async () => {
-    const user = localStorage.getItem("user");
-    this.setState({ user: JSON.parse(user) });
   };
 
   handleLogout = () => {
@@ -44,7 +38,7 @@ export default class Home extends Component {
                 <label>{movie.name}</label>
                 <label>{movie.synopsis}</label>
                 <label>{movie.release_date}</label>
-                <a href="#list">{movie.name}</a>
+                <a href="#list">Ver detalhes</a>
               </li>
             ))}
           </MovieList>
