@@ -26,6 +26,9 @@ export default function Routes() {
         <Route path="/" exact component={Main} />
         <Route path="/register" component={Register} />
         <PrivateRoute path="/app" component={Home} />
+        <PrivateRoute path="/actors" component={Home} />
+        <PrivateRoute path="/directors" component={Home} />
+        <PrivateRoute path="/movies" component={Home} />
         <Route path="*" component={() => <h1>Page Not found</h1>} />
       </Switch>
     </BrowserRouter>

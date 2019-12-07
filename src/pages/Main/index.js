@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ReactDOM from "react-dom";
-
+import { toast } from "react-toastify";
 import api from "../../services/api";
 import auth from "../../services/auth";
 
@@ -29,15 +28,16 @@ class Main extends Component {
       email,
       password
     };
+    try {
+      const response = await api.post("/session", session);
+      const user = response.data.user;
+      const token = response.data.token;
 
-    const response = await api.post("/session", session);
-    const user = response.data.user;
-    const token = response.data.token;
-
-    auth.login(token);
-    localStorage.setItem("user", user);
-
-    this.props.history.push("/app");
+      auth.login(token, user);
+      this.props.history.push("/app");
+    } catch (err) {
+      toast.error("Usuário ou senha inválidos !!");
+    }
   };
 
   render() {
@@ -50,11 +50,13 @@ class Main extends Component {
             type="email"
             onChange={this.handleInputEmailChange}
             placeholder="E-mail"
+            required
           />
           <input
             type="password"
             onChange={this.handleInputPasswordChange}
             placeholder="Senha"
+            required
           />
           <SubmitButton>Logar-se</SubmitButton>
           <ButtonLink>

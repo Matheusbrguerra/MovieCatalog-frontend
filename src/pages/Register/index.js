@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
-import { Container, Form, SubmitButton, ButtonLink } from "./styles";
-import { Link, Redirect } from "react-router-dom";
+import { Container, Form, SubmitButton } from "./styles";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -36,7 +33,7 @@ class Register extends Component {
       this.setState({ name: "" });
       this.setState({ email: "" });
       this.setState({ password: "" });
-      toast.success("Cadastro ralizado com sucesso !!");
+      toast.success("Cadastro realizado com sucesso !!");
     }
     this.setState({ loading: false });
     this.props.history.push("/");
@@ -84,7 +81,7 @@ class Register extends Component {
             value={password}
             required
           />
-          {loading == true ? (
+          {loading === true ? (
             <SubmitButton loading={this.state.loading}>
               Carregando...
             </SubmitButton>

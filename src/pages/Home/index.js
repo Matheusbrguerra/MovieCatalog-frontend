@@ -1,29 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { ButtonLink } from "./styles";
 
 import Navbar from "../../components/Navbar/index";
-
+import { MovieList, MainDiv } from "./styles";
 import api from "../../services/api";
 import auth from "../../services/auth";
 
 export default class Home extends Component {
   state = {
-    movies: []
+    movies: [],
+    page: 2
   };
 
   componentDidMount() {
     this.loadMovies();
+    this.loadUser();
     // this.handleLogout();
   }
 
-  loadMovies = async () => {
-    const { movies } = this.state;
-    const response = await api.get("/movies");
+  loadMovies = async page => {
+    const response = await api.get(`/movies/?page=${this.state.page}`);
+    this.setState({ movies: response.data });
+  };
 
-    this.setState({
-      movies: response.data
-    });
+  loadUser = async () => {
+    const user = localStorage.getItem("user");
+    this.setState({ user: JSON.parse(user) });
   };
 
   handleLogout = () => {
@@ -32,11 +33,23 @@ export default class Home extends Component {
   };
 
   render() {
+    const { movies } = this.state;
     return (
-      <div>
+      <MainDiv>
         <Navbar />
-        <h1>App</h1>
-      </div>
+        <center>
+          <MovieList>
+            {movies.map(movie => (
+              <li key={movie.id}>
+                <label>{movie.name}</label>
+                <label>{movie.synopsis}</label>
+                <label>{movie.release_date}</label>
+                <a href="#list">{movie.name}</a>
+              </li>
+            ))}
+          </MovieList>
+        </center>
+      </MainDiv>
     );
   }
 }

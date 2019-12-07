@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   @font-face {
@@ -45,15 +45,6 @@ export const Form = styled.form`
     border-radius: 4px;
     font-size: 16px;
     margin-bottom: 10px;
-  }
-`;
-
-const rotate = keyframes`
-  from {
-    transform:rotate(0deg)
-  }
-  to{
-    transform:rotate(360deg)
   }
 `;
 

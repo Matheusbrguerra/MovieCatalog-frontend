@@ -111,6 +111,8 @@ export const ButtonLink = styled.div`
     justify-content: center;
     align-items: center;
     &:hover {
+      color: #fff;
+      text-decoration: none;
       background-color: #ffe53b;
       background-image: linear-gradient(147deg, #ffe53b 9%, #ff2525 99%);
     }
