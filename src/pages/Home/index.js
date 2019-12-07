@@ -13,8 +13,18 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
+    this.loadMovies();
     // this.handleLogout();
   }
+
+  loadMovies = async () => {
+    const { movies } = this.state;
+    const response = await api.get("/movies");
+
+    this.setState({
+      movies: response.data
+    });
+  };
 
   handleLogout = () => {
     auth.logout();

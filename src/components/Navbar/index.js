@@ -13,7 +13,6 @@ export default class Navbar extends Component {
               <Link to="/app">MovieCatalog</Link>
             </ButtonLink>
           </li>
-          <li>Meu saco</li>
         </List>
       </ContainerApp>
     );
