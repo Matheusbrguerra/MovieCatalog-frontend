@@ -14,14 +14,6 @@ class Register extends Component {
     password: ""
   };
 
-  loadItens = async () => {
-    const response = await api.get("/movies");
-    console.log(response.data);
-  };
-  componentDidMount() {
-    this.loadItens();
-  }
-
   handleSubmit = async e => {
     const { name, email, password } = this.state;
     e.preventDefault();
@@ -39,8 +31,9 @@ class Register extends Component {
       this.setState({ name: "" });
       this.setState({ email: "" });
       this.setState({ password: "" });
-      this.setState({ loading: false });
     }
+    this.setState({ loading: false });
+    this.props.history.push("/");
   };
 
   handleNameChange = e => {
@@ -58,6 +51,7 @@ class Register extends Component {
   };
 
   render() {
+    const { name, email, password, loading } = this.state;
     return (
       <Container>
         <h1>Cadastro</h1>
@@ -67,18 +61,24 @@ class Register extends Component {
             type="text"
             onChange={this.handleNameChange}
             placeholder="Nome"
+            value={name}
+            required
           />
           <input
             type="text"
             onChange={this.handleEmailChange}
             placeholder="E-mail"
+            value={email}
+            required
           />
           <input
             type="password"
             onChange={this.handlePasswordChange}
             placeholder="Senha"
+            value={password}
+            required
           />
-          {this.state.loading == true ? (
+          {loading == true ? (
             <SubmitButton loading={this.state.loading}>
               Carregando...
             </SubmitButton>

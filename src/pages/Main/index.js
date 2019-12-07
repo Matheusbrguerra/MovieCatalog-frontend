@@ -30,16 +30,19 @@ class Main extends Component {
     };
 
     const response = await api.post("/session", session);
-
+    const user = response.data.user;
     const token = response.data.token;
 
     localStorage.setItem("token", token);
+    localStorage.setItem("user", user);
+
+    this.props.history.push("/app");
   };
 
   render() {
     return (
       <Container>
-        <h1>Catálogo de Filmes</h1>
+        <h1>MovieCatalog</h1>
 
         <Form onSubmit={this.handleSubmit}>
           <input
@@ -52,10 +55,10 @@ class Main extends Component {
             onChange={this.handleInputPasswordChange}
             placeholder="Senha"
           />
+          <SubmitButton>Logar-se</SubmitButton>
           <ButtonLink>
             <Link to="/register">Cadastrar-se</Link>
           </ButtonLink>
-          <SubmitButton>Logar-se</SubmitButton>
         </Form>
       </Container>
     );

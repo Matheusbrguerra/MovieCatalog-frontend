@@ -24,10 +24,13 @@ export const Container = styled.div`
   h1 {
     font-family: billabong, "billabongregular";
     font-size: 50px;
-    background-color: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
+    background-color: #b721ff;
+    background-image: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
   }
   svg {
     margin-right: 10px;
@@ -88,6 +91,10 @@ export const List = styled.ul`
 `;
 
 export const ButtonLink = styled.div`
+  align-self: center;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
   a {
     text-decoration: none;
     align-self: center;
