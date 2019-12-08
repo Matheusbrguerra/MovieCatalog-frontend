@@ -10,15 +10,17 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <ContainerApp>
-        <Link to="/app">MovieCatalog</Link>
-        <Link to="/actors">Atores</Link>
-        <Link to="/directors">Diretores</Link>
-        <Link to="/movies">Filmes</Link>
-        <Link to="/" onClick={this.handleLogout}>
-          Log-out
-        </Link>
-      </ContainerApp>
+      <center>
+        <ContainerApp>
+          <Link to="/app">MovieCatalog</Link>
+          <Link to="/actors">Atores</Link>
+          <Link to="/directors">Diretores</Link>
+          <Link to="/movies">Filmes</Link>
+          <Link to="/" onClick={this.handleLogout}>
+            Log-out
+          </Link>
+        </ContainerApp>
+      </center>
     );
   }
 }

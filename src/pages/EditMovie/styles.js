@@ -33,10 +33,6 @@ export const Container = styled.div`
   svg {
     margin-right: 10px;
   }
-  li {
-    list-style-type: none;
-    flex-direction: column;
-  }
 `;
 
 export const Form = styled.form`
