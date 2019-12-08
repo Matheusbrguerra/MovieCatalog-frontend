@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  overflow: hidden;
   align-self: left;
   @font-face {
     font-family: "billabongregular";
@@ -24,7 +25,7 @@ export const Container = styled.div`
   margin: 10px auto;
   h1 {
     font-family: billabong, "billabongregular";
-    font-size: 50px;
+    font-size: 30px;
     background-color: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
     display: flex;
     align-items: center;

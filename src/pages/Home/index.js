@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/index";
 import { MovieList, MainDiv } from "./styles";
 import api from "../../services/api";
-import auth from "../../services/auth";
 
 export default class Home extends Component {
   state = {
@@ -33,7 +32,8 @@ export default class Home extends Component {
                 <label>{movie.synopsis}</label>
                 <label>{movie.release_date}</label>
                 <Link to={`/movie/${movie.id}`}>Ver detalhes</Link>
-                <Link to={`/edit/${movie.id}`}>Editar</Link>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to={`/movies/${movie.id}`}>Editar</Link>
               </li>
             ))}
           </MovieList>

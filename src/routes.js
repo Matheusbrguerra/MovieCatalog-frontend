@@ -8,9 +8,10 @@ import Home from "./pages/Home/index";
 import Actors from "./pages/Actors/index";
 import Movies from "./pages/Movies/index";
 import Directors from "./pages/Directors/index";
-import EditMovies from "./pages/EditMovie/index";
+import MovieDetail from "./pages/MovieDetail/index";
 import EditDirectors from "./pages/EditDirector/index";
 import EditActors from "./pages/EditActor/index";
+import MovieEdit from "./pages/MovieEdit/index";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -36,9 +37,9 @@ export default function Routes() {
         <PrivateRoute path="/actor/:id" component={EditActors} />
         <PrivateRoute path="/directors" component={Directors} />
         <PrivateRoute path="/director/:id" component={EditDirectors} />
-        <PrivateRoute path="/movies" component={Home} />
-        <PrivateRoute path="/movie/:id" component={Movies} />
-        <PrivateRoute path="/edit/:id" component={EditMovies} />
+        <PrivateRoute path="/movies" component={Movies} />
+        <PrivateRoute path="/movie/:id" component={MovieDetail} />
+        <PrivateRoute path="/movies/:id" component={MovieEdit} />
       </Switch>
     </BrowserRouter>
   );

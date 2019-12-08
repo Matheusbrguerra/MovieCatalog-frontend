@@ -20,7 +20,7 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 10px;
   margin: 10px auto;
   h1 {
     font-family: billabong, "billabongregular";
@@ -32,6 +32,10 @@ export const Container = styled.div`
   }
   svg {
     margin-right: 10px;
+  }
+  li {
+    list-style-type: none;
+    padding: 10px;
   }
 `;
 
@@ -78,9 +82,9 @@ export const SubmitButton = styled.button.attrs(props => ({
 
 export const List = styled.ul`
   list-style: none;
-  margin-top: 30px;
+  margin-top: 0px;
   li {
-    padding: 15px 0;
+    padding: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -98,7 +102,7 @@ export const ButtonLink = styled.div`
   a {
     align-self: center;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 5px;
     height: 30px;
     width: auto;
     background-color: #b721ff;

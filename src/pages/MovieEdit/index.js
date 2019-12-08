@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { toast } from "react-toastify";
 
-class Movie extends Component {
+class EditMovie extends Component {
   state = {
     directors: [],
     actors: [],
@@ -18,59 +18,13 @@ class Movie extends Component {
   };
 
   componentDidMount() {
-    this.loadDirectors();
-    this.loadActors();
+    this.loadMovie();
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
-
-    const {
-      newDirectors,
-      newActors,
-      newName,
-      newDate,
-      newSynopsis
-    } = this.state;
-
-    if (newActors.length === 0 || newDirectors.length === 0) {
-      toast.error("Não se faz filme sem diretor ou sem ator");
-    } else {
-      const obj = {
-        directors: newDirectors,
-        actors: newActors,
-        name: newName,
-        release_date: newDate,
-        synopsis: newSynopsis
-      };
-      try {
-        await api.post("/movies", obj);
-        toast.success("Filme cadastrado com sucesso");
-        this.setState({ newDirectors: [] });
-        this.setState({ newActors: [] });
-        this.setState({ newName: "" });
-        this.setState({ newDate: "" });
-        this.setState({ newSynopsis: "" });
-      } catch (error) {
-        toast.error("Erro ao cadastrar filme");
-      }
-    }
-  };
-
-  loadActors = async () => {
-    const response = await api.get("/actors");
-
-    const data = response.data;
-
-    this.setState({ actors: data });
-  };
-
-  loadDirectors = async () => {
-    const response = await api.get("/directors");
-
-    const data = response.data;
-
-    this.setState({ directors: data });
+  loadMovie = async () => {
+    const { id } = this.props.match.params;
+    const response = await api.get(`/movies/${id}`);
+    console.log(response.data);
   };
 
   saveDirector = async e => {
@@ -202,4 +156,4 @@ class Movie extends Component {
     );
   }
 }
-export default Movie;
+export default EditMovie;

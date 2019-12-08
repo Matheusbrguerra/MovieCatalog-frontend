@@ -71,6 +71,7 @@ export default class Actors extends Component {
                 {actors.map(actor => (
                   <li key={actor.id}>
                     <label>{actor.name}</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <Link to={`/actor/${actor.id}`}>&#x0270E;</Link>
                     <button
                       onClick={async () => {
