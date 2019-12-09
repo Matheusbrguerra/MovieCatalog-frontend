@@ -5,4 +5,4 @@
  na node_modules e colar esse .min nessa pasta
 
 # Após ter corrigido o bug de importação
- Use `yarn start`
+ Use `yarn start` para iniciar a aplicação
