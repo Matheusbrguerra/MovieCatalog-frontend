@@ -38,7 +38,7 @@ export const MovieList = styled.ul`
   display: inline-block;
   *display: inline;
   li {
-    height: 500px;
+    height: 40px;
     max-width: 200px;
     background: #fff;
     border-radius: 4px;
@@ -58,9 +58,47 @@ export const MovieList = styled.ul`
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
     }
+    a {
+      text-decoration: none;
+    }
   }
 `;
 
 export const MainDiv = styled.div`
   overflow-y: none;
+`;
+
+export const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 50px;
+  button {
+    align-self: center;
+    color: #fff;
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: #b721ff;
+    background-image: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
+    border: 0;
+    padding: 0 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    &:hover {
+      background-color: #ffe53b;
+      background-image: linear-gradient(147deg, #ffe53b 9%, #ff2525 99%);
+    }
+  }
 `;

@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/index";
 import { Container, SubmitButton, List } from "./styles";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-
+import moment from "moment";
 export default class MovieDetail extends Component {
   state = {
     movie: [],
@@ -51,7 +51,7 @@ export default class MovieDetail extends Component {
           <label>
             Data de lançamento:
             <br />
-            {Date(movie.release_date)}
+            {moment(new Date(movie.release_date)).format("DD/MM/YYYY")}
           </label>
           <label>
             Atores:

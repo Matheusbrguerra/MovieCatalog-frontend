@@ -11,7 +11,7 @@ import Directors from "./pages/Directors/index";
 import MovieDetail from "./pages/MovieDetail/index";
 import EditDirectors from "./pages/EditDirector/index";
 import EditActors from "./pages/EditActor/index";
-import MovieEdit from "./pages/MovieEdit/index";
+import Movie from "./pages/Movie/index";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -39,7 +39,7 @@ export default function Routes() {
         <PrivateRoute path="/director/:id" component={EditDirectors} />
         <PrivateRoute path="/movies" component={Movies} />
         <PrivateRoute path="/movie/:id" component={MovieDetail} />
-        <PrivateRoute path="/movies/:id" component={MovieEdit} />
+        <PrivateRoute path="/edit/:id" component={Movie} />
       </Switch>
     </BrowserRouter>
   );

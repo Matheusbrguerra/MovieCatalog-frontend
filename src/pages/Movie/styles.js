@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  overflow: hidden;
   align-self: left;
-  align-content: right;
   @font-face {
     font-family: "billabongregular";
     src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot");
@@ -21,11 +21,11 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 30px;
   margin: 10px auto;
   h1 {
     font-family: billabong, "billabongregular";
-    font-size: 50px;
+    font-size: 30px;
     background-color: linear-gradient(19deg, #b721ff 0%, #21d4fd 100%);
     display: flex;
     align-items: center;
@@ -35,7 +35,6 @@ export const Container = styled.div`
     margin-right: 10px;
   }
   li {
-    justify-content: right;
     list-style-type: none;
     padding: 10px;
   }
@@ -84,9 +83,9 @@ export const SubmitButton = styled.button.attrs(props => ({
 
 export const List = styled.ul`
   list-style: none;
-  margin-top: 0px;
+  margin-top: 30px;
   li {
-    padding: 0px;
+    padding: 15px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -104,7 +103,7 @@ export const ButtonLink = styled.div`
   a {
     align-self: center;
     color: #fff;
-    margin-top: 5px;
+    margin-top: 10px;
     height: 30px;
     width: auto;
     background-color: #b721ff;
